@@ -4,6 +4,7 @@ import {admobStart} from '../../admob';
 import Logo from '../../assets/logo';
 import TextCs from '../../atom/text';
 import {httpProfile} from '../../http';
+import {removeToken} from '../../storage';
 
 const styles = StyleSheet.create({
   page: {
@@ -28,8 +29,9 @@ export default function Splash({navigation}) {
       return navigation.replace('Login');
     }
     if (message.status === 'sukses') {
-      if (message.msg.user.active === 0) {
-        return navigation.replace('Email');
+      if (message.msg.user.active !== 'active') {
+        await removeToken();
+        return navigation.replace('Login');
       } else if (
         message.msg.user.photo_path === null ||
         message.msg.user.photo_path === ''
