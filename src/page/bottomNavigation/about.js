@@ -22,7 +22,7 @@ export default function About() {
       <StatusBar type={'home'} text={'AGAPE'} />
       <View style={styles.page}>
         <Logo dimensi={150} />
-        <TextCs text={'ACPIGS V9.0'} size={16} weight={'700'} color={'#000'} />
+        <TextCs text={'ACPIGS V9.5'} size={16} weight={'700'} color={'#000'} />
         <TextCs
           text={'Created By : LARTeams'}
           size={14}

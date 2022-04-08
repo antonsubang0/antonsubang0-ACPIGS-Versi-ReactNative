@@ -85,13 +85,14 @@ export default function CutiIjinSakit({navigation}) {
   const [loading, setLoading] = useState(false);
   const [typeForm, setTypeForm] = useState(0);
   const [data, setData] = useState({
-    tanggal: `${tgl.getDate()} - ${tgl.getMonth() + 1} - ${tgl.getFullYear()}`,
+    tanggal: `${tgl.getDate()} - ${tgl.getMonth()} - ${tgl.getFullYear()}`,
     keperluan: '',
     image: '',
   });
   const isiForm = (type, val) => {
     setData(formData(data, type, val));
   };
+  React.useEffect(() => console.log(data), [data]);
   const onKirim = async () => {
     setLoading(true);
     let result;

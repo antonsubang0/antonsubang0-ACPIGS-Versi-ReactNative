@@ -6,6 +6,7 @@ import TextInputCs from '../../atom/textinput';
 import TextCs from '../../atom/text';
 import {httpCode} from '../../http';
 import {Toast} from '../../toast';
+import {logoutRemoveToken} from '../../storage';
 
 const styles = StyleSheet.create({
   page: {
@@ -35,7 +36,7 @@ export default function Kode({navigation}) {
       Toast(message.error);
     } else if (message.status === 'sukses') {
       Toast('Sukses, silahkan login kembali dengan email baru anda.');
-      navigation.replace('Login');
+      logoutRemoveToken(navigation, Toast);
     } else {
       Toast('Network Error');
     }

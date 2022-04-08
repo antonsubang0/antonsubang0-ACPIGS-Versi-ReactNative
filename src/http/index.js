@@ -329,8 +329,7 @@ const httpPCuti = (tanggal, keperluan) => {
   return new Promise(async (resolve, reject) => {
     const header = JSON.parse(await getDataStorage('kunci'));
     const tgl = String(tanggal).split(' - ');
-    const tglFinal = new Date(tgl[2], tgl[1], tgl[0], 10, 33, 30, 0);
-    console.log(tgl);
+    const tglFinal = new Date(tgl[2], tgl[1] - 1, tgl[0], 10, 33, 30, 0);
     fetch(`${APP_URL}/user/cuti`, {
       method: 'POST',
       headers: {
@@ -361,7 +360,7 @@ const httpPijin = (tanggal, keperluan) => {
   return new Promise(async (resolve, reject) => {
     const header = JSON.parse(await getDataStorage('kunci'));
     const tgl = String(tanggal).split(' - ');
-    const tglFinal = new Date(tgl[2], tgl[1], tgl[0], 10, 33, 30, 0);
+    const tglFinal = new Date(tgl[2], tgl[1] - 1, tgl[0], 10, 33, 30, 0);
     fetch(`${APP_URL}/user/ijin`, {
       method: 'POST',
       headers: {
@@ -393,7 +392,7 @@ const httpPsakit = (tanggal, upload) => {
     // console.log(upload);
     const header = JSON.parse(await getDataStorage('kunci'));
     const tgl = String(tanggal).split(' - ');
-    const tglFinal = new Date(tgl[2], tgl[1], tgl[0], 10, 33, 30, 0);
+    const tglFinal = new Date(tgl[2], tgl[1] - 1, tgl[0], 10, 33, 30, 0);
     const uploadFinal = upload.split(' ')[1];
     fetch(`${APP_URL}/user/sakit`, {
       method: 'POST',
